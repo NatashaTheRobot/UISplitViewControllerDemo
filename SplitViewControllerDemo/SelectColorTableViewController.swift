@@ -62,7 +62,7 @@ class SelectColorTableViewController: UITableViewController, UISplitViewControll
         let cell = tableView.dequeueReusableCellWithIdentifier(colorCellIdentifier) as UITableViewCell
         
         let color = colors[indexPath.row]
-        cell.textLabel.text = color.displayName
+        cell.textLabel?.text = color.displayName
         
         return cell
     }
