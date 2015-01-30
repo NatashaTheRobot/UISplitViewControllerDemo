@@ -13,11 +13,11 @@ struct Color {
     let color: UIColor
 }
 
-class SelectColorTableViewController: UITableViewController, UISplitViewControllerDelegate {
+class SelectColorTableViewController: UITableViewController {
 
     private let colorCellIdentifier = "colorCell"
     
-    private var collapseDetailViewController = true
+    var collapseDetailViewController: Bool  = true
     
     private let colors = [
         Color(displayName: "Green", color: UIColor.greenColor()),
@@ -35,18 +35,34 @@ class SelectColorTableViewController: UITableViewController, UISplitViewControll
         
         super.viewDidLoad()
         
-        splitViewController?.delegate = self
-                
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let colorNavigationController = segue.destinationViewController as? UINavigationController {
-            if let colorViewController = colorNavigationController.topViewController as? ColorViewController {
-                if let selectedRowIndexPath = tableView.indexPathForSelectedRow() {
-                    let color = colors[selectedRowIndexPath.row]
-                    colorViewController.color = color
-                }
+        
+        // identifier if required, if you have more then one segue
+        // it could be set via IB, i did ...
+        if segue.identifier == "show_detail_segue_id" {
+            
+            // colorViewController should never be assigned to nil !!!
+            var colorViewController: ColorViewController!
+            
+            // with help of adaptive segue we can support all devices
+            if let colorNavigationController = segue.destinationViewController as? UINavigationController {
 
+                // works on devices where UISplitViewController is implemented
+                colorViewController = colorNavigationController.topViewController as ColorViewController
+                colorViewController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+                colorViewController.navigationItem.leftItemsSupplementBackButton = true
+            } else {
+
+                // works for iPhone on ios7, where UISplitViewController is not implemented
+                colorViewController = segue.destinationViewController as ColorViewController
+            }
+            // this is common part, where one can configure detail view
+            // segue provides a new instance of detail view everytime
+            if let selectedRowIndexPath = tableView.indexPathForSelectedRow() {
+                let color = colors[selectedRowIndexPath.row]
+                colorViewController.color = color
             }
         }
     }
@@ -68,15 +84,9 @@ class SelectColorTableViewController: UITableViewController, UISplitViewControll
     }
     
     // MARK: Table View Delegate
-    
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         collapseDetailViewController = false
     }
-    
-    // MARK: - UISplitViewControllerDelegate
-    
-    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController!, ontoPrimaryViewController primaryViewController: UIViewController!) -> Bool {
-        return collapseDetailViewController
-    }
-    
+
 }

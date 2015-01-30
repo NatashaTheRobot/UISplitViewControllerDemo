@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D95AA9A1A7BB6C300293F1A /* SplitViewSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D95AA991A7BB6C300293F1A /* SplitViewSupport.swift */; };
 		FA2D4A1319FE53E0009631B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D4A1219FE53E0009631B3 /* AppDelegate.swift */; };
 		FA2D4A1819FE53E0009631B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2D4A1619FE53E0009631B3 /* Main.storyboard */; };
 		FA2D4A1A19FE53E0009631B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA2D4A1919FE53E0009631B3 /* Images.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D95AA991A7BB6C300293F1A /* SplitViewSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewSupport.swift; sourceTree = "<group>"; };
 		FA2D4A0D19FE53E0009631B3 /* SplitViewControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SplitViewControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2D4A1119FE53E0009631B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA2D4A1219FE53E0009631B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		FA2D4A0F19FE53E0009631B3 /* SplitViewControllerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4D95AA991A7BB6C300293F1A /* SplitViewSupport.swift */,
 				FA2D4A1219FE53E0009631B3 /* AppDelegate.swift */,
 				FA2D4A1619FE53E0009631B3 /* Main.storyboard */,
 				FA2D4A3819FE5582009631B3 /* ViewControllers */,
@@ -225,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA2D4A1319FE53E0009631B3 /* AppDelegate.swift in Sources */,
+				4D95AA9A1A7BB6C300293F1A /* SplitViewSupport.swift in Sources */,
 				FA2D4A3719FE5577009631B3 /* ColorViewController.swift in Sources */,
 				FA2D4A3519FE5552009631B3 /* SelectColorTableViewController.swift in Sources */,
 			);
@@ -351,9 +355,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SplitViewControllerDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -364,9 +369,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SplitViewControllerDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -426,6 +432,7 @@
 				FA2D4A2E19FE53E0009631B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA2D4A2F19FE53E0009631B3 /* Build configuration list for PBXNativeTarget "SplitViewControllerDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +441,7 @@
 				FA2D4A3119FE53E0009631B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
