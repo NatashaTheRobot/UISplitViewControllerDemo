@@ -50,13 +50,13 @@ class SelectColorTableViewController: UITableViewController {
             if let colorNavigationController = segue.destinationViewController as? UINavigationController {
 
                 // works on devices where UISplitViewController is implemented
-                colorViewController = colorNavigationController.topViewController as ColorViewController
+                colorViewController = colorNavigationController.topViewController as! ColorViewController
                 colorViewController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 colorViewController.navigationItem.leftItemsSupplementBackButton = true
             } else {
 
                 // works for iPhone on ios7, where UISplitViewController is not implemented
-                colorViewController = segue.destinationViewController as ColorViewController
+                colorViewController = segue.destinationViewController as! ColorViewController
             }
             // this is common part, where one can configure detail view
             // segue provides a new instance of detail view everytime
@@ -75,7 +75,7 @@ class SelectColorTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(colorCellIdentifier) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(colorCellIdentifier) as! UITableViewCell
         
         let color = colors[indexPath.row]
         cell.textLabel?.text = color.displayName
