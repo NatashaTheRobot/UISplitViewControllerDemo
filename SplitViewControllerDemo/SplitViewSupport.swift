@@ -46,7 +46,7 @@ extension UISplitViewController: UISplitViewControllerDelegate {
     }
     
     
-    public func splitViewController(svc: UISplitViewController!, willShowViewController aViewController: UIViewController!, invalidatingBarButtonItem barButtonItem: UIBarButtonItem!) {
+    public func splitViewController(svc: UISplitViewController, willShowViewController aViewController: UIViewController, invalidatingBarButtonItem barButtonItem: UIBarButtonItem) {
         if (!svc.respondsToSelector(Selector("displayModeButtonItem"))) {
             if let detailView = svc.viewControllers[svc.viewControllers.count-1] as? UINavigationController {
                 svc.backBarButtonItem = nil
